@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
+
+.mainMenuContainer{
+    color: #121212;
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+}
+
+.menuContainer{
+    height: 80dvh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px;
+}
+
+.tutorialContainer, .challengeContainer{
+    width: 40%;
+    height: 25em;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 15px;
+    padding: 15px;
+    font-family: 'Lora', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.tutorialContainer, .challengeContainer{
+    color: #9C02F1;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleMenu{
+    font-size: 2.5em;
+    margin-bottom: -1em;
+}
+
+.tutorialTitle, .challengeTitle{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2em;
+    font-weight: 800;
+    font: bold;
+    color: #db2777;
+}
+
+.buttonChallenges, .buttonTutorial{
+    margin: 5px;
+}
+
+.hideDiv{
+    display: none;
+}
+
+.showTutorialDiv, .showChallengeDiv{
+    display: block;
+    height: 15em;
+    transition: all .5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 5px;
+}

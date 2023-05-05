@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+.heroContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90svh;
+}
+
+.bubbleText{
+    height: 25em;
+    width: 50em;
+    animation: myAnim 1s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateX(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.bubble{
+    background-color: #F855AE;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    width: 40em;
+    height: 15em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    animation: myAnimBubble 1s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnimBubble {
+	0% {
+		opacity: 0;
+		transform: translateX(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.bubble p{
+    font-size: 1.3em;
+    font-family: 'Roboto Mono', monospace;
+    animation: myAnimText 1s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnimText {
+	0% {
+		opacity: 0;
+		transform: translateX(250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.arkie{
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: myAnimArkie .8s ease 1.5s 1 normal forwards;
+}
+
+@keyframes myAnimArkie {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateY(-45px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateY(-24px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateY(-12px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateY(-6px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateY(-4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87% {
+		animation-timing-function: ease-out;
+		transform: translateY(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}

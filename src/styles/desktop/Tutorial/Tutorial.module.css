@@ -1,0 +1,54 @@
+.main{
+    height: 100dvh;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.contentContainer{
+    color: #121212;
+    padding: 10px;
+}
+
+.fragsContainer{
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    background-color: rgba(255, 0, 0, .5);
+    margin: 5px;
+    transition: 1s ease-in-out;
+    height: 5em;
+}
+
+.frags{
+    border: 2.5px solid blue;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 5em;
+    text-align: center;
+    color: #f1f1f1;
+    transition: 1s ease-in-out;
+}
+
+.fraseContainer{
+    border: 2px solid green;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, .5);
+    margin: 5px;
+    height: 5em;
+}
+
+.phraseFrags{
+    border-radius: 20px;
+    border: 2.5px solid pink;
+    background-color: rgba(0, 255, 200, .5);
+    height: 5em;
+}
