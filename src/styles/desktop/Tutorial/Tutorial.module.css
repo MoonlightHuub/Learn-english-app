@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+
 .main{
     height: 100dvh;
+    scroll-behavior: smooth;
 }
 
 .footer{
@@ -12,43 +15,73 @@
 .contentContainer{
     color: #121212;
     padding: 10px;
-}
-
-.fragsContainer{
-    border: 2px solid red;
     display: flex;
-    justify-content: space-around;
-    border-radius: 20px;
-    background-color: rgba(255, 0, 0, .5);
-    margin: 5px;
-    transition: 1s ease-in-out;
-    height: 5em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75dvh;
 }
 
-.frags{
-    border: 2.5px solid blue;
+.gameContainer{
+    padding: 10px;
+    width: 80%;
+    height: 40em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(200, 92, 142, .5);
     border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 5em;
-    text-align: center;
-    color: #f1f1f1;
-    transition: 1s ease-in-out;
 }
 
 .fraseContainer{
-    border: 2px solid green;
     display: flex;
     justify-content: space-around;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, .5);
+    background-color: #A084DC;
+    color: #f1f1f1;
     margin: 5px;
-    height: 5em;
+    height: 12em;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-family: 'Rubik', sans-serif;
 }
 
 .phraseFrags{
     border-radius: 20px;
-    border: 2.5px solid pink;
-    background-color: rgba(0, 255, 200, .5);
-    height: 5em;
+    height: 12em;
+    width: 95%;
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fragsContainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 2.5px solid #BFACE2;
+    margin: 5px;
+    height: 12em;
+    padding: 5px;
+    width: 95%;
+}
+
+.frags{
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 5em;
+    margin: 5px;
+    text-align: center;
+    color: #f1f1f1;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.1));
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    font-family: 'Rubik', sans-serif;
 }

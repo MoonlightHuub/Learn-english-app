@@ -44,3 +44,22 @@
     transform: scale(1.2);
     transition: .2s;
 }
+
+.link{
+    font-size: 1.5em;
+    font-family: 'Rubik', sans-serif;
+    font: bold;
+    font-weight: 600;
+    padding-left: 1em;
+    cursor: pointer;
+}
+
+.link:hover{
+    transform: scale(1.2);
+    transition: .2s;
+}
+
+.link:active{
+    transform: scale(.8);
+    transition: .2s;
+}

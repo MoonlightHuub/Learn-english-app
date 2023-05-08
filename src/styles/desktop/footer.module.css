@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 .footer{
-    height: 7em;
+    height: 6em;
     background-color: rgba(0, 0, 0, .5);
     display: flex;
     align-items: center;
@@ -7,6 +9,7 @@
     text-align: center;
     font-size: 1.2em;
     color: rgba(255, 255, 255, .6);
+    font-family: 'Roboto Mono', monospace;
 }
 
 .link{

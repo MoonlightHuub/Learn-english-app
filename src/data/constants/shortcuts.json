@@ -1,14 +1,12 @@
 [
     {
         "id": 0,
-        "key": "Home"
+        "key": "Home",
+        "link": "#"
     },
     {
         "id": 1,
-        "key": "Menu"
-    },
-    {
-        "id": 2,
-        "key": "About Me!"
+        "key": "Menu",
+        "link": "#Menu"
     }
 ]

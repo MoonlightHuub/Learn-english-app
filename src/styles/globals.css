@@ -12,6 +12,7 @@ body{
     background-attachment: fixed;
     overflow: hidden;
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar{
