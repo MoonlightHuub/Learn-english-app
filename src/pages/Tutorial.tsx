@@ -1,6 +1,6 @@
-import HeaderOut from "@/components/header/HeaderOut";
+import HeaderOut from "@/components/HeaderOut";
 import Head from "next/head";
-import Footer from "@/components/footer/Footer";
+import Footer from "@/components/Footer";
 import Content from "@/components/Tutorial/Content";
 import styles from "../styles/desktop/Tutorial/Tutorial.module.css";
 

@@ -1,5 +1,5 @@
 import styles from '@/styles/desktop/header.module.css'
-import ShortsCutsJson from '../../data/constants/shortcuts.json'
+import ShortsCutsJson from '../data/constants/shortcuts.json'
 import Router from 'next/router';
 
 interface ShortCuts{

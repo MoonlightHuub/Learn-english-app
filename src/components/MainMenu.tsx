@@ -1,4 +1,4 @@
-import styles from "../../styles/desktop/menu.module.css";
+import styles from "../styles/desktop/menu.module.css";
 import { useRouter } from "next/router";
 import { useState } from "react";
 

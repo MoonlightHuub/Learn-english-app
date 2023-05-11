@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "@/styles/desktop/hero.module.css";
-import arkie from "../../../public/Arkie.png";
+import arkie from "../../public/Arkie.png";
 import Image from "next/image";
-import Link from "next/link";
 
 function Hero() {
   const [showDiv, setShowDiv] = useState<boolean>(false);

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '../../styles/desktop/footer.module.css'
+import styles from '../styles/desktop/footer.module.css'
 
 function Footer() {
   return (

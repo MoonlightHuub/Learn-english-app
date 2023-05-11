@@ -1,43 +1,47 @@
-import { frasesJson } from "@/data/Frases/frases";
 import styles from "../../styles/desktop/Tutorial/Tutorial.module.css";
-import { phrasesJson } from "@/data/phrases/phrases";
 import { intros } from "@/data/constants/IntroTutorial/intro";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { phrasesJson } from "@/data/phrases/phrases";
+import { frasesJson } from "@/data/Frases/frases";
+import  Router  from "next/router";
 
-interface Elements {
-  fid?: number;
-  frag?: string;
+export interface Elements {
+  fid: number;
+  frag: string;
 }
 
+const phraseArray = Object.values(phrasesJson);
+export const fraseArray = Object.values(frasesJson);
+
 function Content() {
-  const phraseArray = Object.values(phrasesJson);
-  const fraseArray = Object.values(frasesJson);
 
   // Variables to handle the render of phrases throught index
   const [indexOfFrag, setIndexOfFrag] = useState(0);
   const [indexOfFrase, setIndexOfFrase] = useState(0);
   const [indexOfIntro, setIndexOfIntro] = useState(0);
   const [showDiv, setShowDiv] = useState(false);
-  const [showButton, setShowButton] = useState(false);
+
   // Variables for the fragments, phrases to complete and element selected
   const [phraseToComplete, setPhraseToComplete] = useState<Elements[]>([]);
   const [selected, setSelected] = useState<Elements[]>([]);
   const [fragments, setFragments] = useState(phraseArray);
+
   // Variables to handle the float menu
   const [isTrue, setIsTrue] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [intro, setIntro] = useState(true);
+  const [endTutorial, setEndTutorial] = useState(false)
 
   // used to prevent bug of hydration render
-
   useEffect(() => {
-    setShowDiv(false);
-    setShowDiv(true);
+    AntiBug();
+    HandleIntro();
   }, [indexOfFrag]);
 
-  // Functions to handle the elements savingm from 'Fragments' into 'selected' and pushing into 'Phrase'. Select, Delete and Complete
+  console.log(indexOfFrag)
 
-  const handleSelectedElement = (id: number) => {
+  // Functions to handle the elements savingm from 'Fragments' into 'selected' and pushing into 'Phrase'. Select, Delete and Complete
+  const HandleSelectedElement = (id: number) => {
     setSelected([]);
     setSelected((prevSelected: Elements[]) => {
       const elementToAdd = fragments
@@ -50,14 +54,14 @@ function Content() {
     });
   };
 
-  const handleDeleteElement = (id: number) => {
+  const HandleDeleteElement = (id: number) => {
     const newFragments = fragments.map((arr) =>
       arr.filter((e) => e.fid !== id)
     );
     setFragments(newFragments);
   };
 
-  const handleCompletePhrase = (id: number) => {
+  const HandleCompletePhrase = (id: number) => {
     setPhraseToComplete((prev: Elements[]) => {
       const elementToMove = fragments
         .find((arr) => arr.some((e) => e.fid === id))
@@ -70,15 +74,15 @@ function Content() {
     });
   };
 
-  const handleElements = (id: number) => {
-    handleSelectedElement(id);
-    handleDeleteElement(id);
-    handleCompletePhrase(id);
+  const HandleElements = (id: number) => {
+    HandleSelectedElement(id);
+    HandleDeleteElement(id);
+    HandleCompletePhrase(id);
   };
 
   // Functions to verify if the phrase is complete and handle the 'sections'.
 
-  function isInOrder(phrase: Elements[]) {
+  function IsInOrder(phrase: Elements[]) {
     let isOrder = true;
 
     for (let i = 1; i < phrase.length; i++) {
@@ -97,6 +101,13 @@ function Content() {
     }
   }
 
+  const HandleIntro = () => {
+    if (indexOfFrase == 3) {
+      setIntro(true);
+      setIndexOfIntro(3);
+    }
+  };
+
   const Skip = () => {
     setIntro(false);
   };
@@ -110,12 +121,26 @@ function Content() {
   };
 
   const Next = () => {
-    setFragments(phraseArray);
-    setIndexOfFrag(indexOfFrag + 1);
-    setIndexOfFrase(indexOfFrase + 1);
-    setPhraseToComplete([]);
-    setIsTrue(false);
-    setToggleMenu(false);
+    if(indexOfFrase === 5){
+      EndTutorial()
+      setIsTrue(false);
+      setToggleMenu(false);
+    }else{
+      setFragments(phraseArray);
+      setIndexOfFrag(indexOfFrag + 1);
+      setIndexOfFrase(indexOfFrase + 1);
+      setPhraseToComplete([]);
+      setIsTrue(false);
+      setToggleMenu(false);
+    }
+  };
+
+  const HandleNextIntro = () => {
+    if (indexOfIntro >= 2) {
+      Skip();
+    }else {
+      IntroNext();
+    }
   };
 
   const TryAgain = () => {
@@ -126,35 +151,95 @@ function Content() {
     setIndexOfFrase(indexOfFrase);
   };
 
+  const EndTutorial = () => {
+    setEndTutorial(true)
+  }
+
+  const handleEndTutorial = () => {
+    Router.push("/")
+  }
+
+  // function to prevent bug.
+
+  const AntiBug = () => {
+    setShowDiv(false);
+    setShowDiv(true);
+  };
+
   return (
     <section className={styles.contentContainer}>
+      {endTutorial && (
+        <div className={styles.menuContainer}>
+          <div className={styles.tutorialIntro}>
+            <div className={styles.introContainer}>
+              <div>
+                <img
+                  src="../../Arkie.png"
+                  alt="Arkie"
+                  className={styles.arkieIntro}
+                />
+              </div>
+              <div>
+                <h3>
+                  Felicidades!! Haz completado el Tutorial. Ahora estas listo para aventurarte a los Desafios. no dudes y sigue adelante!
+                </h3>
+              </div>
+            </div>
+            <div>
+              <button
+                onClick={handleEndTutorial}
+                className={styles.button}
+              >
+                Menu
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {intro && (
         <div className={styles.menuContainer}>
           <div className={styles.tutorialIntro}>
             <div className={styles.introContainer}>
               <div>
-                <img src="../../Arkie.png" alt="Arkie" className={styles.arkieIntro} />
+                <img
+                  src="../../Arkie.png"
+                  alt="Arkie"
+                  className={styles.arkieIntro}
+                />
               </div>
               <div>
                 {intros[indexOfIntro].map((e) => (
-                  <p className={styles.text}>
-                    {e.text}
-                  </p>
+                  <p className={styles.text}>{e.text}</p>
                 ))}
               </div>
             </div>
             <div className={styles.buttonsContainer}>
-              <button onClick={Skip} className={styles.buttonIntro}>Skip</button>
+              <button onClick={Skip} className={styles.buttonIntro}>
+                Skip
+              </button>
               <div>
                 <span>
                   <span>
                     {indexOfIntro > 0 && (
-                      <button onClick={IntroBack} className={styles.buttonIntro}>Back</button>
+                      <button
+                        onClick={IntroBack}
+                        className={styles.buttonIntro}
+                        style={
+                          indexOfIntro == 3
+                            ? { display: "none" }
+                            : { display: "" }
+                        }
+                      >
+                        Back
+                      </button>
                     )}
                   </span>
                   <span>
-                    <button onClick={indexOfIntro !== 2 ? IntroNext : Skip} className={styles.buttonIntro}>
-                      {indexOfIntro !== 2 ? 'Next' : 'Finish'}
+                    <button
+                      onClick={HandleNextIntro}
+                      className={styles.buttonIntro}
+                    >
+                      Next
                     </button>
                   </span>
                 </span>
@@ -166,10 +251,15 @@ function Content() {
       {toggleMenu && (
         <div className={styles.menuContainer}>
           <div className={styles.winOrFail}>
-            <div className={styles.containerTextWoF} style={isTrue ? {backgroundColor: "rgba(0, 255, 0, .5)"} : {backgroundColor: "rgba(255, 0, 0, .5)"}}>
-              <h2
-                className={styles.textWoF}
-              >
+            <div
+              className={styles.containerTextWoF}
+              style={
+                isTrue
+                  ? { backgroundColor: "rgba(0, 255, 0, .5)" }
+                  : { backgroundColor: "rgba(255, 0, 0, .5)" }
+              }
+            >
+              <h2 className={styles.textWoF}>
                 {isTrue
                   ? "Perfecto! completaste correctamente la frase."
                   : "Intentalo Otra vez. No te rindas!"}
@@ -179,7 +269,10 @@ function Content() {
               <img src="../../Arkie.png" alt="Arkie" className={styles.arkie} />
             </div>
             <div>
-              <button onClick={isTrue ? Next : TryAgain} className={styles.menuButton}>
+              <button
+                onClick={isTrue ? Next : TryAgain}
+                className={styles.menuButton}
+              >
                 {isTrue ? "Next" : "Try Again"}
               </button>
             </div>
@@ -190,14 +283,14 @@ function Content() {
         <div className={styles.fraseContainer}>
           {fraseArray[indexOfFrase].map((e, i) => (
             <div key={i}>
-              <h1>{e.frase}</h1>
+              <h2>{e.frase}</h2>
             </div>
           ))}
         </div>
         <div className={styles.phraseFrags}>
           {phraseToComplete?.map((e: Elements, i: number) => (
             <div key={i} className={styles.frags}>
-              <h1>{e.frag}</h1>
+              <h3>{e.frag}</h3>
             </div>
           ))}
         </div>
@@ -209,15 +302,15 @@ function Content() {
                 <div
                   className={styles.frags}
                   key={i}
-                  onClick={() => handleElements(frag.fid)}
+                  onClick={() => HandleElements(frag.fid)}
                 >
-                  <h1>{frag.frag}</h1>
+                  <h3>{frag.frag}</h3>
                 </div>
               ))}
         </div>
         <div>
           <button
-            onClick={() => isInOrder(phraseToComplete)}
+            onClick={() => IsInOrder(phraseToComplete)}
             className={styles.button}
           >
             Comprobar
