@@ -1,7 +1,6 @@
 import HeaderOut from "@/components/HeaderOut";
 import Head from "next/head";
-import Footer from "@/components/Footer";
-import Content from "@/components/Tutorial/Content";
+import LogicTutorial from "@/components/LogicTutorial";
 import styles from "../styles/desktop/Tutorial/Tutorial.module.css";
 
 function Tutorial() {
@@ -12,7 +11,7 @@ function Tutorial() {
       </Head>
       <HeaderOut />
       <div style={{ height: "5em" }} />
-      <Content />
+      <LogicTutorial />
     </main>
   );
 }

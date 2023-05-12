@@ -1,8 +1,18 @@
-import React from 'react'
+import styles from "../styles/desktop/Challenges/challenges.module.css"
+import Header from "@/components/HeaderOut"
+import Content from "@/components/LogicChallenge"
+import Head from "next/head"
 
 function Challenges() {
   return (
-    <div>Challenges</div>
+    <main className={styles.main}>
+      <Head>
+        <title>Learn With Arkie | Desafios</title>
+      </Head>
+      <Header />
+      <div style={{height: "5em"}} />
+      <Content />
+    </main>
   )
 }
 
