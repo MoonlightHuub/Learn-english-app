@@ -15,6 +15,18 @@ export const fraseArray = Object.values(frasesJson);
 
 function Content() {
 
+  useEffect(() => {
+    const handleResize = () => {
+      const { innerWidth, innerHeight } = window;
+      console.log(`La resolución actual del viewport es: ${innerWidth} x ${innerHeight}`);
+    };
+  
+    window.addEventListener("resize", handleResize);
+    handleResize();
+  
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // Variables to handle the render of phrases throught index
   const [indexOfFrag, setIndexOfFrag] = useState(0);
   const [indexOfFrase, setIndexOfFrase] = useState(0);
@@ -37,8 +49,6 @@ function Content() {
     AntiBug();
     HandleIntro();
   }, [indexOfFrag]);
-
-  console.log(indexOfFrag)
 
   // Functions to handle the elements savingm from 'Fragments' into 'selected' and pushing into 'Phrase'. Select, Delete and Complete
   const HandleSelectedElement = (id: number) => {
@@ -167,10 +177,11 @@ function Content() {
   };
 
   return (
-    <section className={styles.contentContainer}>
+    <main className={styles.contentContainer}>
+      {/* end of tutorial interface */}
       {endTutorial && (
-        <div className={styles.menuContainer}>
-          <div className={styles.tutorialIntro}>
+        <article className={styles.menuContainer}>
+          <section className={styles.tutorialIntro}>
             <div className={styles.introContainer}>
               <div>
                 <img
@@ -193,12 +204,13 @@ function Content() {
                 Menu
               </button>
             </div>
-          </div>
-        </div>
+          </section>
+        </article>
       )}
+      {/* interface introduction */}
       {intro && (
-        <div className={styles.menuContainer}>
-          <div className={styles.tutorialIntro}>
+        <article className={styles.menuContainer}>
+          <section className={styles.tutorialIntro}>
             <div className={styles.introContainer}>
               <div>
                 <img
@@ -213,7 +225,7 @@ function Content() {
                 ))}
               </div>
             </div>
-            <div className={styles.buttonsContainer}>
+            <section className={styles.buttonsContainer}>
               <button onClick={Skip} className={styles.buttonIntro}>
                 Skip
               </button>
@@ -244,13 +256,14 @@ function Content() {
                   </span>
                 </span>
               </div>
-            </div>
-          </div>
-        </div>
+            </section>
+          </section>
+        </article>
       )}
+      {/* menu win or fail */}
       {toggleMenu && (
-        <div className={styles.menuContainer}>
-          <div className={styles.winOrFail}>
+        <article className={styles.menuContainer}>
+          <section className={styles.winOrFail}>
             <div
               className={styles.containerTextWoF}
               style={
@@ -276,27 +289,31 @@ function Content() {
                 {isTrue ? "Next" : "Try Again"}
               </button>
             </div>
-          </div>
-        </div>
+          </section>
+        </article>
       )}
+      { /* Game content */}
       <section className={styles.gameContainer}>
-        <div className={styles.fraseContainer}>
+        <article className={styles.fraseContainer}>
           {fraseArray[indexOfFrase].map((e, i) => (
             <div key={i}>
               <h2>{e.frase}</h2>
             </div>
           ))}
-        </div>
-        <div className={styles.phraseFrags}>
-          {phraseToComplete?.map((e: Elements, i: number) => (
-            <div key={i} className={styles.frags}>
-              <h3>{e.frag}</h3>
-            </div>
-          ))}
-        </div>
-        <div className={styles.fragsContainer}>
-          {showDiv &&
-            fragments[indexOfFrag]
+        </article>
+        <article className={styles.phraseFrags}>
+          <div className={styles.fragsBox}>
+            {phraseToComplete?.map((e: Elements, i: number) => (
+              <div key={i} className={styles.frags}>
+                <h3>{e.frag}</h3>
+              </div>
+            ))}
+          </div>
+        </article>
+        <article className={styles.fragsContainer}>
+          <div className={styles.fragsBox}>
+            {showDiv &&
+              fragments[indexOfFrag]
               .sort(() => Math.random() - 0.5)
               .map((frag, i) => (
                 <div
@@ -307,7 +324,8 @@ function Content() {
                   <h3>{frag.frag}</h3>
                 </div>
               ))}
-        </div>
+          </div>
+        </article>
         <div>
           <button
             onClick={() => IsInOrder(phraseToComplete)}
@@ -317,7 +335,7 @@ function Content() {
           </button>
         </div>
       </section>
-    </section>
+    </main>
   );
 }
 

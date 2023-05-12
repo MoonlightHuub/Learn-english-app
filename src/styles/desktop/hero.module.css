@@ -26,12 +26,13 @@
 }
 
 .bubble{
-    background-color: #F855AE;
+    background-color: #E07BCF;
     border-radius: 20px;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     width: 40em;
     height: 15em;
+	font-weight: 500;
     position: absolute;
     right: 0;
     top: 0;
@@ -69,8 +70,8 @@
 }
 
 .arkie{
-    width: 200px;
-    height: 150px;
+    width: 16em;
+    height: 10em;
     position: absolute;
     bottom: 0;
     left: 0;

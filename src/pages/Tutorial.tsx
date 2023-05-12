@@ -13,9 +13,6 @@ function Tutorial() {
       <HeaderOut />
       <div style={{ height: "5em" }} />
       <Content />
-      <div className={styles.footer}>
-        <Footer />
-      </div>
     </main>
   );
 }

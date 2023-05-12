@@ -19,7 +19,7 @@ function Header() {
       <div className={styles.keysContainer}>
         <ul className={styles.keyList}>
             {keys.map((keys) => (
-                <li onClick={() => Router.push(keys.link)} className={styles.link}>{keys.key}</li>
+                <li onClick={() => Router.push(keys.link)} className={styles.link} key={keys.id}>{keys.key}</li>
             ))}
         </ul>
       </div>

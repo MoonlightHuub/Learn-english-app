@@ -18,8 +18,7 @@
 .tutorialContainer, .challengeContainer{
     width: 40%;
     height: 25em;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
-    backdrop-filter: blur(10px);
+    background-color: #a084dc;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     border-radius: 15px;
     padding: 15px;
@@ -31,16 +30,19 @@
 }
 
 .tutorialContainer, .challengeContainer{
-    color: #9C02F1;
+    color: #f1f1f1;
     font-size: 1.2em;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .titleMenu{
     font-size: 2.5em;
     margin-bottom: -1em;
+    color: #e07bcf;
+    font-family: 'Rubik', sans-serif;
 }
 
 .tutorialTitle, .challengeTitle{
@@ -48,11 +50,29 @@
     font-size: 2em;
     font-weight: 800;
     font: bold;
-    color: #db2777;
+    color: #e07bcf;
+    text-shadow: 1px 1px 1px rgba(86, 72, 118, 0.9);
 }
 
 .buttonChallenges, .buttonTutorial{
     margin: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .8em;
+    padding-bottom: .8em;
+    border-radius: 20px;
+    border: 4px solid #524371;
+    background-color: rgba(0, 255, 0, .5);
+    color: #f1f1f1;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.buttonChallenges:hover, .buttonTutorial:hover{
+    transform: scale(1.2);
+    transition: .2s;
+    cursor: pointer;
 }
 
 .hideDiv{
