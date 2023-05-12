@@ -4,6 +4,7 @@ import styles from "../styles/desktop/content.module.css";
 import { intros } from "@/data/constants/introChallenge/intro";
 import { phrasesJson } from "@/data/phrases/challenges/phrases";
 import { frasesJson } from "@/data/Frases/challenges/frases";
+import endChallengeJson from '../data/constants/endChallenge.json'
 import Content from "./Content";
 
 export interface Elements {
@@ -11,6 +12,7 @@ export interface Elements {
   frag: string;
 }
 
+const endChallengeText = endChallengeJson
 const phraseArray = Object.values(phrasesJson);
 const fraseArray = Object.values(frasesJson);
 const introJson = intros
@@ -32,12 +34,11 @@ function LogicChallenge() {
   const [isTrue, setIsTrue] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
   const [intro, setIntro] = useState(true);
-  const [endTutorial, setEndTutorial] = useState(false)
+  const [endChallenge, setEndChallenge] = useState(false)
 
   // used to prevent bug of hydration render
   useEffect(() => {
     AntiBug();
-    HandleIntro();
   }, [indexOfFrag]);
 
   // Functions to handle the elements savingm from 'Fragments' into 'selected' and pushing into 'Phrase'. Select, Delete and Complete
@@ -102,9 +103,9 @@ function LogicChallenge() {
   }
 
   const HandleIntro = () => {
-    if (indexOfFrase == 3) {
+    if (indexOfFrase == 9) {
       setIntro(true);
-      setIndexOfIntro(3);
+      setIndexOfIntro(2);
     }
   };
 
@@ -152,10 +153,10 @@ function LogicChallenge() {
   };
 
   const EndChallenge = () => {
-    setEndTutorial(true)
+    setEndChallenge(true)
   }
 
-  const HandleEndTutorial = () => {
+  const HandleEndChallenge = () => {
     Router.push("/")
   }
 
@@ -173,7 +174,7 @@ function LogicChallenge() {
         phraseToComplete={phraseToComplete}
         fragments={fragments}
         showDiv={showDiv}
-        endTutorial={endTutorial}
+        end={endChallenge}
         intro={intro}
         indexOfIntro={indexOfIntro}
         indexOfFrase={indexOfFrase}
@@ -181,8 +182,9 @@ function LogicChallenge() {
         toggleMenu={toggleMenu}
         isTrue={isTrue}
         intros={introJson}
+        endText={endChallengeText}
         Skip={Skip}
-        HandleEndTutorial={HandleEndTutorial}
+        HandleEnd={HandleEndChallenge}
         IntroBack={IntroBack}
         HandleNextIntro={HandleNextIntro}
         Next={Next}

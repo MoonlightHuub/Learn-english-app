@@ -1,3 +1,4 @@
+import { text } from "stream/consumers";
 import styles from "../styles/desktop/content.module.css";
 import { Elements } from "./LogicTutorial";
 
@@ -14,12 +15,16 @@ type Intros = {
   text: string
 }[][];
 
+type Text ={
+  text: string
+}[];
+
 type Props = {
     fraseArray: FraseArray
     phraseToComplete: Elements[]
     fragments: Fragments
     showDiv: boolean
-    endTutorial: boolean
+    end: boolean
     intro: boolean
     indexOfIntro: number
     indexOfFrase: number
@@ -27,7 +32,8 @@ type Props = {
     toggleMenu: boolean
     isTrue: boolean
     intros: Intros
-    HandleEndTutorial: () => void
+    endText: Text
+    HandleEnd: () => void
     Skip: () => void
     IntroBack: () => void
     HandleNextIntro: () => void
@@ -39,12 +45,12 @@ type Props = {
 
 function Content(props: Props) {
 
-  const {fraseArray, phraseToComplete, fragments, showDiv, endTutorial, intro, indexOfIntro, indexOfFrase, indexOfFrag, toggleMenu, isTrue, intros, HandleEndTutorial, Skip, IntroBack, HandleNextIntro, Next, TryAgain, HandleElements, IsInOrder} = props
+  const {fraseArray, phraseToComplete, fragments, showDiv, end, intro, indexOfIntro, indexOfFrase, indexOfFrag, toggleMenu, isTrue, intros, endText, HandleEnd, Skip, IntroBack, HandleNextIntro, Next, TryAgain, HandleElements, IsInOrder} = props
 
   return (
     <section>
         {/* end of tutorial interface */}
-      {endTutorial && (
+      {end && (
         <article className={styles.menuContainer}>
           <section className={styles.tutorialIntro}>
             <div className={styles.introContainer}>
@@ -56,14 +62,16 @@ function Content(props: Props) {
                 />
               </div>
               <div>
-                <h3>
-                  Felicidades!! Haz completado el Tutorial. Ahora estas listo para aventurarte a los Desafios. no dudes y sigue adelante!
-                </h3>
+                {endText.map((e, i) => (
+                  <h3 key={i}>
+                    {e.text}
+                  </h3>
+                ))}
               </div>
             </div>
             <div>
               <button
-                onClick={HandleEndTutorial}
+                onClick={HandleEnd}
                 className={styles.button}
               >
                 Menu
@@ -198,6 +206,13 @@ function Content(props: Props) {
           >
             Comprobar
           </button>
+          <span>
+            <button
+              onClick={Next}
+            >
+              Next
+            </button>
+          </span>
         </div>
       </section>
     </section>

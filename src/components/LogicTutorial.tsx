@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { phrasesJson } from "@/data/phrases/tutorial/phrases";
 import { frasesJson } from "@/data/Frases/tutorial/frases";
 import { intros } from "@/data/constants/IntroTutorial/intro";
+import endTutorialJson from '../data/constants/endTutorial.json'
 import styles from "../styles/desktop/content.module.css";
 import  Router  from "next/router";
 import Content from "./Content";
@@ -11,24 +12,12 @@ export interface Elements {
   frag: string;
 }
 
+const endTutorialText = endTutorialJson
 const introJson = intros
-
 const phraseArray = Object.values(phrasesJson);
 export const fraseArray = Object.values(frasesJson);
 
 function LogicTutorial() {
-
-  useEffect(() => {
-    const handleResize = () => {
-      const { innerWidth, innerHeight } = window;
-      console.log(`La resolución actual del viewport es: ${innerWidth} x ${innerHeight}`);
-    };
-  
-    window.addEventListener("resize", handleResize);
-    handleResize();
-  
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   // Variables to handle the render of phrases throught index
   const [indexOfFrag, setIndexOfFrag] = useState(0);
@@ -168,7 +157,7 @@ function LogicTutorial() {
     setEndTutorial(true)
   }
 
-  const HandleEndTutorial = () => {
+  const HandleEnd = () => {
     Router.push("/")
   }
 
@@ -186,7 +175,7 @@ function LogicTutorial() {
         phraseToComplete={phraseToComplete}
         fragments={fragments}
         showDiv={showDiv}
-        endTutorial={endTutorial}
+        end={endTutorial}
         intro={intro}
         indexOfIntro={indexOfIntro}
         indexOfFrase={indexOfFrase}
@@ -194,8 +183,9 @@ function LogicTutorial() {
         toggleMenu={toggleMenu}
         isTrue={isTrue}
         intros={introJson}
+        endText={endTutorialText}
         Skip={Skip}
-        HandleEndTutorial={HandleEndTutorial}
+        HandleEnd={HandleEnd}
         IntroBack={IntroBack}
         HandleNextIntro={HandleNextIntro}
         Next={Next}
