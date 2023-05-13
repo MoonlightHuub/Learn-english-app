@@ -1,6 +1,7 @@
-import { text } from "stream/consumers";
 import styles from "../styles/desktop/content.module.css";
 import { Elements } from "./LogicTutorial";
+import Timer from "./Timer";
+import {SetStateAction, Dispatch} from "react"
 
 type FraseArray = {
   frase: string
@@ -20,36 +21,44 @@ type Text ={
 }[];
 
 type Props = {
-    fraseArray: FraseArray
-    phraseToComplete: Elements[]
-    fragments: Fragments
-    showDiv: boolean
-    end: boolean
-    intro: boolean
-    indexOfIntro: number
-    indexOfFrase: number
-    indexOfFrag: number
-    toggleMenu: boolean
-    isTrue: boolean
-    intros: Intros
-    endText: Text
-    HandleEnd: () => void
-    Skip: () => void
-    IntroBack: () => void
-    HandleNextIntro: () => void
-    Next: () => void
-    TryAgain: () => void
-    HandleElements: (id: number) => void
-    IsInOrder: (phrase: Elements[]) => void
+  fraseArray: FraseArray
+  phraseToComplete: Elements[]
+  fragments: Fragments
+  showDiv: boolean
+  end: boolean
+  intro: boolean
+  indexOfIntro: number
+  indexOfFrase: number
+  indexOfFrag: number
+  toggleMenu: boolean
+  isTrue: boolean
+  intros: Intros
+  endText: Text
+  showTimer?: boolean
+  start: boolean
+  timerRef?: React.RefObject<HTMLDivElement>
+  HandleEnd: () => void
+  Skip: () => void
+  IntroBack: () => void
+  HandleNextIntro: () => void
+  Next: () => void
+  TryAgain: () => void
+  HandleElements: (id: number) => void
+  IsInOrder: (phrase: Elements[]) => void
+  setStart: Dispatch<SetStateAction<boolean>>
 }
 
 function Content(props: Props) {
 
-  const {fraseArray, phraseToComplete, fragments, showDiv, end, intro, indexOfIntro, indexOfFrase, indexOfFrag, toggleMenu, isTrue, intros, endText, HandleEnd, Skip, IntroBack, HandleNextIntro, Next, TryAgain, HandleElements, IsInOrder} = props
+  const {fraseArray, phraseToComplete, fragments, showDiv, end, intro, indexOfIntro, indexOfFrase, indexOfFrag, toggleMenu, isTrue, intros, endText, showTimer, start, HandleEnd, Skip, IntroBack, HandleNextIntro, Next, TryAgain, HandleElements, IsInOrder, setStart} = props
 
   return (
     <section>
-        {/* end of tutorial interface */}
+        {/* timer */}
+      {showTimer && (
+        <Timer start={start} setStart={setStart} />
+      )}
+        {/* end of Challenge interface */}
       {end && (
         <article className={styles.menuContainer}>
           <section className={styles.tutorialIntro}>
@@ -206,13 +215,6 @@ function Content(props: Props) {
           >
             Comprobar
           </button>
-          <span>
-            <button
-              onClick={Next}
-            >
-              Next
-            </button>
-          </span>
         </div>
       </section>
     </section>

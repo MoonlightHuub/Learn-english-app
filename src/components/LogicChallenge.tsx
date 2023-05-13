@@ -36,6 +36,10 @@ function LogicChallenge() {
   const [intro, setIntro] = useState(true);
   const [endChallenge, setEndChallenge] = useState(false)
 
+  // timer
+  const [showTimer, setShowTimer] = useState(true)
+  const [start, setStart] = useState(false)
+
   // used to prevent bug of hydration render
   useEffect(() => {
     AntiBug();
@@ -102,15 +106,9 @@ function LogicChallenge() {
     }
   }
 
-  const HandleIntro = () => {
-    if (indexOfFrase == 9) {
-      setIntro(true);
-      setIndexOfIntro(2);
-    }
-  };
-
   const Skip = () => {
     setIntro(false);
+    setStart(true)
   };
 
   const IntroNext = () => {
@@ -169,7 +167,8 @@ function LogicChallenge() {
 
   return (
     <main className={styles.contentContainer}>
-      <Content 
+      <div style={{height: "5em"}} />
+      <Content
         fraseArray={fraseArray}
         phraseToComplete={phraseToComplete}
         fragments={fragments}
@@ -183,6 +182,7 @@ function LogicChallenge() {
         isTrue={isTrue}
         intros={introJson}
         endText={endChallengeText}
+        showTimer={showTimer}
         Skip={Skip}
         HandleEnd={HandleEndChallenge}
         IntroBack={IntroBack}
@@ -191,6 +191,8 @@ function LogicChallenge() {
         TryAgain={TryAgain}
         HandleElements={HandleElements}
         IsInOrder={IsInOrder}
+        start={start}
+        setStart={setStart}
       />
     </main>
   );
