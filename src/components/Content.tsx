@@ -102,8 +102,8 @@ function Content(props: Props) {
                 />
               </div>
               <div>
-                {intros[indexOfIntro].map((e) => (
-                  <p className={styles.text}>{e.text}</p>
+                {intros[indexOfIntro].map((e, i) => (
+                  <p className={styles.text} key={i}>{e.text}</p>
                 ))}
               </div>
             </div>
