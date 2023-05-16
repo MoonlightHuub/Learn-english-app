@@ -11,9 +11,33 @@
     z-index: 100;
 }
 
+@media (max-width: 640px){
+    .headerContainer{
+        height: 5em;
+        color: #f1f1f1;
+        background-color: rgb(160, 132, 220);
+        position: fixed;
+        left: 0;
+        right: 0;
+        display: flex;
+        z-index: 100;
+    }
+
+    .headerContentContainer{
+        height: 5em;
+        color: #f1f1f1;
+        background-color: rgb(160, 132, 220);
+        position: static;
+        left: 0;
+        right: 0;
+        display: flex;
+        z-index: 100;
+    }
+}
+
 .logoContainer{
     width: 40%;
-    padding-left: 2em;
+    padding-left: .5em;
     display: flex;
     align-items: center;
 }

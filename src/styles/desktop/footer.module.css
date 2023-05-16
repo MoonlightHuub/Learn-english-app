@@ -1,17 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
-.footer{
-    height: 6em;
-    background-color: rgba(0, 0, 0, .5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.2em;
-    color: rgba(255, 255, 255, .6);
-    font-family: 'Roboto Mono', monospace;
+@media (min-width: 640px){
+    .footer{
+        height: 6em;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, .6);
+        font-family: 'Roboto Mono', monospace;
+    }
+    
+    .link{
+        color: #f1f1f1;
+    }
 }
 
-.link{
-    color: #f1f1f1;
+@media (max-width: 640px){
+    .footer{
+        height: 6em;
+        background-color: rgba(0, 0, 0, .5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 1.2em;
+        color: rgba(255, 255, 255, .6);
+        font-family: 'Roboto Mono', monospace;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    
+    .link{
+        color: #f1f1f1;
+    }
 }

@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
 
-@media (min-width: 640px){
+@media (max-width: 640px){
 
     .mainMenuContainer{
         text-align: center;
         font-family: 'Rubik', sans-serif;
     }
-    
+
     .menuContainer{
-        height: 80dvh;
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
         align-items: center;
-        padding: 25px;
+        justify-content: center;
     }
-    
+
     .tutorialContainer, .challengeContainer{
-        width: 40%;
-        height: 25em;
+        width: 80%;
+        height: 27em;
         background-color: #a084dc;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         border-radius: 15px;
@@ -27,20 +26,16 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        color: #f1f1f1;
-        font-size: 1.2em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        transition: .5s;
+        margin: 2em;
     }
-    
+
     .titleMenu{
-        font-size: 2.5em;
-        margin-bottom: -1em;
         color: #e07bcf;
-        font-family: 'Rubik', sans-serif;
+        font-size: 2em;
+        margin-bottom: 2em;
     }
-    
+
     .tutorialTitle, .challengeTitle{
         font-size: 2em;
         font-weight: 800;
@@ -48,7 +43,17 @@
         color: #e07bcf;
         text-shadow: 1px 1px 1px rgba(86, 72, 118, 0.9);
     }
-    
+
+    .tutorialText, .challengeText{
+        font-size: 1.2em;
+        margin-bottom: 2em;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    .tutorialText{
+        margin-bottom: 4em;
+    }
+
     .buttonChallenges, .buttonTutorial{
         margin: 5px;
         padding-left: 1em;
@@ -63,31 +68,16 @@
         font-size: 1.2em;
         font-weight: 600;
     }
-    
-    .buttonChallenges:hover, .buttonTutorial:hover{
-        transform: scale(1.2);
-        transition: .2s;
-        cursor: pointer;
-        background-color: rgba(0, 255, 0, .8);
-    }
 
     .buttonChallenges:active, .buttonTutorial:active{
         transform: scale(.9);
         transition: .2s;
+        background-color: rgba(0, 255, 0, .8);
     }
-    
+
     .hideDiv{
         display: none;
     }
-    
-    .showTutorialDiv, .showChallengeDiv{
-        display: block;
-        height: 15em;
-        transition: all .5s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        padding: 5px;
-    }
+
+
 }

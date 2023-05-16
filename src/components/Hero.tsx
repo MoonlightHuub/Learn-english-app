@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "@/styles/desktop/hero.module.css";
+import mobileStyles from '../styles/mobile/heroMobile.module.css'
 import arkie from "../../public/Arkie.png";
 import Image from "next/image";
 
@@ -33,11 +34,11 @@ function Hero() {
   }, []);
 
   return (
-    <section className={styles.heroContainer}>
+    <section className={`${styles.heroContainer} ${mobileStyles.heroContainer}`}>
       {showDiv && (
-        <div className={styles.bubbleText}>
+        <div className={`${styles.bubbleContainer} ${mobileStyles.bubbleContainer}`}>
           {showDivTwo && (
-            <div className={styles.bubble}>
+            <div className={`${styles.bubble} ${mobileStyles.bubble}`} style={{opacity: 1}}>
               {showDivTree && (
                 <div>
                   <p>
@@ -53,8 +54,8 @@ function Hero() {
               )}
             </div>
           )}
-          <div className={styles.arkieContainer}>
-            <Image src={arkie} alt="Arkie" className={styles.arkie} />
+          <div className={`${styles.arkieContainer} ${mobileStyles.arkieContainer}`}>
+            <Image src={arkie} alt="Arkie" className={`${styles.arkie} ${mobileStyles.arkie}`} />
           </div>
         </div>
       )}

@@ -1,4 +1,5 @@
 import styles from "../styles/desktop/menu.module.css";
+import mobileStyles from '../styles/mobile/mainMenu.module.css'
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -25,20 +26,20 @@ function MainMenu() {
   }
 
   return (
-    <div className={styles.mainMenuContainer}>
-      <div>
-        <h2 className={styles.titleMenu}>Menu de Arkie</h2>
-      </div>
-      <div className={styles.menuContainer}>
-        <div 
-          className={styles.tutorialContainer}
+    <article className={`${styles.mainMenuContainer} ${mobileStyles.mainMenuContainer}`}>
+      <header>
+        <h2 className={`${styles.titleMenu} ${mobileStyles.titleMenu}`}>Menu de Arkie</h2>
+      </header>
+      <main className={`${styles.menuContainer} ${mobileStyles.menuContainer}`}>
+        <section 
+          className={`${styles.tutorialContainer} ${mobileStyles.tutorialContainer}`}
           onMouseEnter={handleMouseEnterA}
           onMouseLeave={handleMouseLeaveA}
         >
-          <h2 className={styles.tutorialTitle}>Tutorial</h2>
-          <article className={isHoveringTutorial == true ? styles.showTutorialDiv : styles.hideDiv}>
+          <h2 className={`${styles.tutorialTitle} ${mobileStyles.tutorialTitle}`}>Tutorial</h2>
+          <article className={`${isHoveringTutorial == true ? styles.showTutorialDiv : styles.hideDiv} ${isHoveringTutorial == true ? mobileStyles.showTutorialDiv : mobileStyles.hideDiv }`}>
             <div>
-              <p className={styles.tutorialText}>
+              <p className={`${styles.tutorialText} ${mobileStyles.tutorialText}`}>
                 Aqui aprenderas lo basico para afrontar nuestras futuras
                 pruebas. <br />
                 Echale un vistazo si se te olvidó algo!
@@ -47,22 +48,22 @@ function MainMenu() {
             <div>
               <button
                 onClick={() => router.push("/Tutorial")}
-                className={styles.buttonTutorial}
+                className={`${styles.buttonTutorial} ${mobileStyles.buttonTutorial}`}
               >
                 Ir al tutorial
               </button>
             </div>
           </article>
-        </div>
-        <div 
-          className={styles.challengeContainer}
+        </section>
+        <section 
+          className={`${styles.challengeContainer} ${mobileStyles.challengeContainer}`}
           onMouseEnter={handleMouseEnterB}
           onMouseLeave={handleMouseLeaveB}
         >
-          <h2 className={styles.challengeTitle}>Desafios de Arkie</h2>
-          <article className={isHoveringChallenge == true ? styles.showChallengeDiv : styles.hideDiv}>
+          <h2 className={`${styles.challengeTitle} ${mobileStyles.challengeTitle}`}>Desafios de Arkie</h2>
+          <article className={`${isHoveringChallenge ? styles.showChallengeDiv : styles.hideDiv} ${isHoveringChallenge ? mobileStyles.showChallengeDiv : mobileStyles.hideDiv }`}>
             <div>
-              <p className={styles.challengeText}>
+              <p className={`${styles.challengeText} ${mobileStyles.challengeText}`}>
                 Aqui podras acceder a nuestros desafios que pondran a prueba tus
                 habilidades y conocimiento. <br />
                 Tendremos limite de tiempo y si fallamos volveremos al
@@ -73,15 +74,15 @@ function MainMenu() {
             <div>
               <button
                 onClick={() => router.push("/Challenges")}
-                className={styles.buttonChallenges}
+                className={`${styles.buttonChallenges} ${mobileStyles.buttonChallenges}`}
               >
                 ir al Desafio!
               </button>
             </div>
           </article>
-        </div>
-      </div>
-    </div>
+        </section>
+      </main>
+    </article>
   );
 }
 

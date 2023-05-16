@@ -10,7 +10,7 @@ function Challenges() {
         <title>Learn With Arkie | Desafios</title>
       </Head>
       <Header />
-      <div style={{height: "5em"}} />
+      <div style={{height: "5em"}} className={styles.isMobile} />
       <Content />
     </main>
   )

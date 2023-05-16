@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap');
+
+@media (max-width: 640px){
+
+    .heroContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90svh;
+        overflow-x: hidden;
+    }
+
+    .bubbleContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 6em;
+        animation: myAnim 1s ease 0s 1 normal forwards;
+    }
+
+    @keyframes myAnim {
+		0% {
+			opacity: 0;
+			transform: translateX(250px);
+		}
+	
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+    .bubble{
+        background-color: #E07BCF;
+        border-radius: 20px;
+        text-align: center;
+        font-family: 'Rubik', sans-serif;
+        font-size: 1.2em;
+        font-weight: 600;
+        width: 80%;
+        padding: 1em;
+        animation: myAnimBubble 1s ease 0s 1 normal forwards;
+    }
+
+    @keyframes myAnimBubble {
+		0% {
+			opacity: 0;
+			transform: translateX(250px);
+		}
+	
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+    .bubble p{
+        animation: myAnimText 1s ease 0s 1 normal forwards;
+    }
+
+    @keyframes myAnimText {
+		0% {
+			opacity: 0;
+			transform: translateX(250px);
+		}
+	
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+    .arkie{
+        width: 16em;
+        height: 10em;
+        position: absolute;
+        left: 0;
+        margin-top: -2em;
+        animation: myAnimArkie .8s ease 1.5s 1 normal forwards;
+    }
+
+    @keyframes myAnimArkie {
+        0% {
+            animation-timing-function: ease-in;
+            opacity: 1;
+            transform: translateY(-45px);
+        }
+    
+        24% {
+            opacity: 1;
+        }
+    
+        40% {
+            animation-timing-function: ease-in;
+            transform: translateY(-24px);
+        }
+    
+        65% {
+            animation-timing-function: ease-in;
+            transform: translateY(-12px);
+        }
+    
+        82% {
+            animation-timing-function: ease-in;
+            transform: translateY(-6px);
+        }
+    
+        93% {
+            animation-timing-function: ease-in;
+            transform: translateY(-4px);
+        }
+    
+        25%,
+        55%,
+        75%,
+        87% {
+            animation-timing-function: ease-out;
+            transform: translateY(0px);
+        }
+    
+        100% {
+            animation-timing-function: ease-out;
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+}

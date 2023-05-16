@@ -10,95 +10,201 @@
     right: 0;
 }
 
-.counterContainer{
-    position: absolute;
-    width: 7em;
-    height: 7em;
-    margin: 20px;
-    background-color: rgba(160, 132, 220, .8);
-    border-radius: 50%;
-    text-align: center;
-    -webkit-box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
+@media (min-width: 640px){
+
+    .counterContainer{
+        position: absolute;
+        width: 7em;
+        height: 7em;
+        margin: 20px;
+        background-color: rgba(160, 132, 220, .8);
+        border-radius: 50%;
+        text-align: center;
+        -webkit-box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
+    }
+    
+    .counter{
+        font-family: 'Rubik', sans-serif;
+        font-size: 2em;
+    }
+    
+    .timerContainer{
+        color: #f1f1f1;
+    }
+    
+    .endOfGame{
+        background-color: rgba(0, 0, 0, .5);
+        color: #f1f1f1;
+        position: absolute;
+        padding: 15px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .menuEndOfGame{
+        width: 60em;
+        height: 40em;
+        margin-top: 3em;
+        background-color: #A084DC;
+        border: 5px solid #5D4B84;
+        border-radius: 20px;
+        color: #f1f1f1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .contentMenu{
+        display: flex;
+        align-items: center;
+        padding: 15px;
+    }
+    
+    .arkie{
+        width: 25em;
+    }
+    
+    .text{
+        font-size: 1.2em;
+        font-family: 'Rubik', sans-serif;
+        text-align: center;
+    }
+    
+    .button{
+        background-color: rgba(255, 0, 0, .5);
+        border: 4px solid #5D4B84;
+        border-radius: 20px;
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        color: #f1f1f1;
+        font-size: 1.2em;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 600;
+    
+    }
+    
+    .button:hover{
+        transform: scale(1.2);
+        transition: .2s;
+        cursor: pointer;
+    }
+    
+    .button:active{
+        transform: scale(.9);
+        transition: .2s;
+    }
+
 }
 
-.counter{
-    font-family: 'Rubik', sans-serif;
-    font-size: 2em;
-}
+@media (max-width: 640px){
 
-.timerContainer{
-    color: #f1f1f1;
-}
+    .isMobile{
+        display: none;
+    }
 
-.endOfGame{
-    background-color: rgba(0, 0, 0, .5);
-    color: #f1f1f1;
-    position: absolute;
-    padding: 15px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 60;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    .counterContainer{
+        position: absolute;
+        top: 5.5em;
+        left: 34.2%;
+        width: 6em;
+        height: 6em;
+        margin: 20px;
+        background-color: rgba(160, 132, 220, .8);
+        border-radius: 50%;
+        text-align: center;
+        -webkit-box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 72px -1px rgba(0,0,0,0.75);
+        text-align: center;
+    }
 
-.menuEndOfGame{
-    width: 60em;
-    height: 40em;
-    margin-top: 3em;
-    background-color: #A084DC;
-    border: 5px solid #5D4B84;
-    border-radius: 20px;
-    color: #f1f1f1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
+    .counter{
+        font-family: 'Rubik', sans-serif;
+        font-size: 2em;
+    }
+    
+    .timerContainer{
+        color: #f1f1f1;
+    }
+    
+    .endOfGame{
+        background-color: rgba(0, 0, 0, .5);
+        color: #f1f1f1;
+        position: absolute;
+        padding: 15px;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+    }
+    
+    .menuEndOfGame{
+        width: 60em;
+        height: 40em;
+        margin-top: 3em;
+        background-color: #A084DC;
+        border: 5px solid #5D4B84;
+        border-radius: 20px;
+        color: #f1f1f1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .contentMenu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+    
+    .arkie{
+        width: 15em;
+        margin-left: 2em;
+    }
 
-.contentMenu{
-    display: flex;
-    align-items: center;
-    padding: 15px;
-}
+    .text{
+        font-size: 1.2em;
+        font-family: 'Rubik', sans-serif;
+        text-align: center;
+    }
+    
+    .button{
+        background-color: rgba(255, 0, 0, .5);
+        border: 4px solid #5D4B84;
+        border-radius: 20px;
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        color: #f1f1f1;
+        font-size: 1.2em;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 600;
+    
+    }
+    
+    .button:active{
+        transform: scale(.9);
+        transition: .2s;
+        background-color: rgba(255, 0, 0, .8);
+    }
 
-.arkie{
-    width: 25em;
-}
-
-.text{
-    font-size: 1.2em;
-    font-family: 'Rubik', sans-serif;
-    text-align: center;
-}
-
-.button{
-    background-color: rgba(255, 0, 0, .5);
-    border: 4px solid #5D4B84;
-    border-radius: 20px;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    color: #f1f1f1;
-    font-size: 1.2em;
-    font-family: 'Rubik', sans-serif;
-    font-weight: 600;
-
-}
-
-.button:hover{
-    transform: scale(1.2);
-    transition: .2s;
-    cursor: pointer;
-}
-
-.button:active{
-    transform: scale(.9);
-    transition: .2s;
 }

@@ -10,7 +10,7 @@ function Tutorial() {
         <title>Learn With Arkie | Tutorial</title>
       </Head>
       <HeaderOut />
-      <div style={{ height: "5em" }} />
+      <div style={{ height: "5em" }} className={styles.isMobile} />
       <LogicTutorial />
     </main>
   );

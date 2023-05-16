@@ -3,7 +3,7 @@ import Router from 'next/router'
 
 function Header() {
   return (
-    <header className={styles.headerContainer}>
+    <header className={`${styles.headerContainer} ${styles.headerContentContainer}`}>
       <div className={styles.logoContainer}>
         <img src="../../../Arkie.png" alt="logo" style={{width: '100px'}} title='Arkie' />
       </div>
