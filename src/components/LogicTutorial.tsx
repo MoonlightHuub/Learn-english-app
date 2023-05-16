@@ -40,7 +40,8 @@ function LogicTutorial() {
   useEffect(() => {
     AntiBug();
     HandleIntro();
-  }, [indexOfFrag]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [indexOfFrase]);
 
   // Functions to handle the elements savingm from 'Fragments' into 'selected' and pushing into 'Phrase'. Select, Delete and Complete
   const HandleSelectedElement = (id: number) => {

@@ -1,6 +1,7 @@
 import styles from '@/styles/desktop/header.module.css'
 import ShortsCutsJson from '../data/constants/shortcuts.json'
 import Router from 'next/router';
+import Image from 'next/image';
 
 interface ShortCuts{
     id: number;
@@ -14,7 +15,7 @@ function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.logoContainer}>
-        <img src="../../../Arkie.png" alt="logo" style={{width: '100px'}} title='Arkie' />
+        <Image src="/Arkie.png" alt="logo" width={100} height={65} title='Arkie' />
       </div>
       <div className={styles.keysContainer}>
         <ul className={styles.keyList}>

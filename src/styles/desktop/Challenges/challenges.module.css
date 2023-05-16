@@ -115,7 +115,7 @@
 
     .counterContainer{
         position: absolute;
-        top: 5.5em;
+        top: 0;
         left: 34.2%;
         width: 6em;
         height: 6em;
@@ -141,7 +141,7 @@
     .endOfGame{
         background-color: rgba(0, 0, 0, .5);
         color: #f1f1f1;
-        position: absolute;
+        position: fixed;
         padding: 15px;
         top: 0;
         bottom: 0;
@@ -156,8 +156,7 @@
     
     .menuEndOfGame{
         width: 60em;
-        height: 40em;
-        margin-top: 3em;
+        height: 35em;
         background-color: #A084DC;
         border: 5px solid #5D4B84;
         border-radius: 20px;

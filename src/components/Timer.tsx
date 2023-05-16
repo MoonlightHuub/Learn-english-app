@@ -1,3 +1,4 @@
+import Image from "next/image";
 import stylesChallenge from "../styles/desktop/Challenges/challenges.module.css";
 import { useState, useEffect, SetStateAction, Dispatch } from "react";
 
@@ -6,10 +7,11 @@ type Props = {
   timerRef?: React.RefObject<HTMLDivElement>;
   start?: boolean;
   setStart?: Dispatch<SetStateAction<boolean | undefined>>;
+  resolution: number;
 };
 
 function Timer(props: Props) {
-    const { start, setStart } = props;
+    const { start, setStart, resolution } = props;
     const [seconds, setSeconds] = useState(300);
     const [endGame, setEndGame] = useState(false);
 
@@ -26,6 +28,7 @@ function Timer(props: Props) {
         }
 
         return () => clearInterval(timer);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [start, seconds]);
 
     const minutes = Math.floor(seconds / 60);
@@ -42,11 +45,23 @@ function Timer(props: Props) {
           <div className={stylesChallenge.menuEndOfGame}>
             <section className={stylesChallenge.contentMenu}>
               <div className={stylesChallenge.arkieContainer}>
-                <img
-                  src="../../Arkie.png"
-                  alt="Arkie"
-                  className={stylesChallenge.arkie}
-                />
+                {resolution > 640 ?
+                  <Image
+                    src="/Arkie.png"
+                    alt="Arkie"
+                    width={240}
+                    height={240}
+                    className={stylesChallenge.arkie}
+                  />
+                    :
+                  <Image
+                    src="/Arkie.png"
+                    alt="Arkie"
+                    width={90}
+                    height={140}
+                    className={stylesChallenge.arkie}
+                  />
+                }
               </div>
               <div className={stylesChallenge.textContainer}>
                 <p className={stylesChallenge.text}>

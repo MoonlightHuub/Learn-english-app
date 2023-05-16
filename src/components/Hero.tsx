@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "@/styles/desktop/hero.module.css";
 import mobileStyles from '../styles/mobile/heroMobile.module.css'
-import arkie from "../../public/Arkie.png";
 import Image from "next/image";
 
 function Hero() {
@@ -55,7 +54,7 @@ function Hero() {
             </div>
           )}
           <div className={`${styles.arkieContainer} ${mobileStyles.arkieContainer}`}>
-            <Image src={arkie} alt="Arkie" className={`${styles.arkie} ${mobileStyles.arkie}`} />
+            <Image src="/Arkie.png" width={200} height={200} alt="Arkie" className={`${styles.arkie} ${mobileStyles.arkie}`} />
           </div>
         </div>
       )}

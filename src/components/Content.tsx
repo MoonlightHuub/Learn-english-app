@@ -1,8 +1,10 @@
+import Image from "next/image";
 import styles from "../styles/desktop/content.module.css";
 import mobileStyles from '../styles/mobile/contentMobile.module.css'
 import { Elements } from "./LogicTutorial";
 import Timer from "./Timer";
-import {SetStateAction, Dispatch} from "react"
+import {SetStateAction, useState, useEffect} from "react"
+import Router  from "next/router";
 
 type FraseArray = {
   frase: string
@@ -49,15 +51,56 @@ type Props = {
   setStart?: React.Dispatch<SetStateAction<boolean | undefined>> 
 }
 
+const useWindowResolution = (): { width: number; height: number } => {
+  const [resolution, setResolution] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setResolution({ width: window.innerWidth, height: window.innerHeight });
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return resolution;
+};
+
 function Content(props: Props) {
 
   const {fraseArray, phraseToComplete, fragments, showDiv, end, intro, indexOfIntro, indexOfFrase, indexOfFrag, toggleMenu, isTrue, intros, endText, showTimer, start, HandleEnd, Skip, IntroBack, HandleNextIntro, Next, TryAgain, HandleElements, IsInOrder, setStart} = props
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const resolution = useWindowResolution();
 
   return (
     <section className={mobileStyles.sectionContainer}>
         {/* timer */}
       {showTimer && (
-        <Timer start={start} setStart={setStart} />
+        <header>
+          <div
+            style={{position: "absolute", top: "0"}}
+            onClick={() => {Router.push("/")}}
+          >
+            <Image  
+              src="/Arkie.png"
+              alt="Arkie"
+              width={100}
+              height={70}
+            />
+          </div>
+          <Timer start={start} setStart={setStart} resolution={resolution.width} />
+        </header>
       )}
         {/* end of Challenge interface */}
       {end && (
@@ -65,11 +108,23 @@ function Content(props: Props) {
           <section className={`${styles.tutorialIntro} ${mobileStyles.tutorialIntro}`}>
             <div className={`${styles.introContainer} ${mobileStyles.introContainer}`}>
               <div>
-                <img
-                  src="../../Arkie.png"
-                  alt="Arkie"
-                  className={`${styles.arkieIntro} ${mobileStyles.arkieIntro}`}
-                />
+                {resolution.width > 640? 
+                  <Image
+                    src="/Arkie.png"
+                    alt="Arkie"
+                    width={240}
+                    height={240}
+                    className={`${styles.arkieIntro} ${mobileStyles.arkieIntro}`}
+                  />
+                    :
+                  <Image
+                    src="/Arkie.png"
+                    alt="Arkie"
+                    width={140}
+                    height={140}
+                    className={`${styles.arkieIntro} ${mobileStyles.arkieIntro}`}
+                  />  
+                }
               </div>
               <div>
                 {endText.map((e, i) => (
@@ -90,15 +145,17 @@ function Content(props: Props) {
           </section>
         </article>
       )}
-      {/* interface introduction */}
+      {/* introduction */}
       {intro && (
         <article className={`${styles.menuContainer} ${mobileStyles.menuContainer}`}>
           <section className={`${styles.tutorialIntro} ${mobileStyles.tutorialIntro}`}>
             <div className={`${styles.introContainer} ${mobileStyles.introContainer}`}>
               <div>
-                <img
-                  src="../../Arkie.png"
+                <Image
+                  src="/Arkie.png"
                   alt="Arkie"
+                  width={50}
+                  height={150}
                   className={`${styles.arkieIntro} ${mobileStyles.arkieIntro}`}
                 />
               </div>
@@ -162,7 +219,7 @@ function Content(props: Props) {
               </h2>
             </div>
             <div className={`${styles.imageContainer} ${mobileStyles.imageContainer}`}>
-              <img src="../../Arkie.png" alt="Arkie" className={`${styles.arkie} ${mobileStyles.arkie}`} />
+              <Image src="/Arkie.png" width={240} height={140} alt="Arkie" className={`${styles.arkie} ${mobileStyles.arkie}`} />
             </div>
             <div>
               <button
@@ -176,7 +233,15 @@ function Content(props: Props) {
         </article>
       )}
       { /* Game content */}
-      <main className={`${styles.gameContainer} ${mobileStyles.gameContainer}`}>
+      <main 
+        className={`${styles.gameContainer} ${mobileStyles.gameContainer}`}
+        style={
+          end || toggleMenu || intro ? 
+          {overflow: "hidden"}
+          :
+          {overflow: "auto"}
+        }
+        >
         <article className={`${styles.fraseContainer} ${mobileStyles.fraseContainer}`}>
           {fraseArray[indexOfFrase].map((e, i) => (
             <div key={i}>
