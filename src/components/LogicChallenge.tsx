@@ -38,7 +38,7 @@ function LogicChallenge() {
 
   // timer
   const [showTimer, setShowTimer] = useState(true)
-  const [start, setStart] = useState(false)
+  const [start, setStart] = useState<boolean | undefined>(false)
 
   // used to prevent bug of hydration render
   useEffect(() => {

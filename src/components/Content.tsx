@@ -36,7 +36,7 @@ type Props = {
   intros: Intros
   endText: Text
   showTimer?: boolean
-  start: boolean
+  start?: boolean
   timerRef?: React.RefObject<HTMLDivElement>
   HandleEnd: () => void
   Skip: () => void
@@ -46,7 +46,7 @@ type Props = {
   TryAgain: () => void
   HandleElements: (id: number) => void
   IsInOrder: (phrase: Elements[]) => void
-  setStart: Dispatch<SetStateAction<boolean>>
+  setStart?: React.Dispatch<SetStateAction<boolean | undefined>> 
 }
 
 function Content(props: Props) {

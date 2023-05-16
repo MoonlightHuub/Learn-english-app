@@ -4,8 +4,8 @@ import { useState, useEffect, SetStateAction, Dispatch } from "react";
 type Props = {
   timeLeft?: number;
   timerRef?: React.RefObject<HTMLDivElement>;
-  start: boolean;
-  setStart: Dispatch<SetStateAction<boolean>>;
+  start?: boolean;
+  setStart?: Dispatch<SetStateAction<boolean | undefined>>;
 };
 
 function Timer(props: Props) {
@@ -21,7 +21,7 @@ function Timer(props: Props) {
         }, 1000);
 
         if (seconds === 0) {
-            setStart(false);
+            setStart!(false);
             setEndGame(true);
         }
 
