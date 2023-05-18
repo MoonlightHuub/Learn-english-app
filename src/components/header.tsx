@@ -15,7 +15,8 @@ function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.logoContainer}>
-        <Image src="/Arkie.png" alt="logo" width={100} height={65} title='Arkie' />
+        {/* eslint-disable-next-line */}
+        <img src="/Arkie.png" alt="logo" title='Arkie' />
       </div>
       <div className={styles.keysContainer}>
         <ul className={styles.keyList}>
