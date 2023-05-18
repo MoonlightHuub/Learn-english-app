@@ -1,4 +1,4 @@
-import styles from '@/styles/desktop/header.module.css'
+import styles from "@/styles/desktop/header.module.css"
 import ShortsCutsJson from '../data/constants/shortcuts.json'
 import Router from 'next/router';
 import Image from 'next/image';
@@ -15,7 +15,9 @@ function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.logoContainer}>
-        <Image src="/Arkie.png" alt="arkie" width={100} height={65} title="Arkie" />
+        {/* eslint-disable-next-line */}
+          <img src="../Arkie.png" alt="ArkieImg" className={styles.arkie} />
+        {/* <Image src="/Arkie.png" alt="arkie" width={100} height={65} title="Arkie" /> */}
       </div>
       <div className={styles.keysContainer}>
         <ul className={styles.keyList}>

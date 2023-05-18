@@ -11,6 +11,10 @@
     z-index: 100;
 }
 
+.arkie{
+    width: 7em;
+}
+
 @media (max-width: 640px){
     .headerContainer{
         height: 5em;
