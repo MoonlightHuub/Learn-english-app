@@ -4,9 +4,9 @@ import Router from 'next/router';
 import Image from 'next/image';
 
 interface ShortCuts{
-    id: number;
-    key: string;
-    link: string;
+  id: number;
+  key: string;
+  link: string;
 }
 
 const keys: ShortCuts[] = ShortsCutsJson
@@ -15,8 +15,7 @@ function Header() {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.logoContainer}>
-        {/* eslint-disable-next-line */}
-        <Image src="/Arkie.png" alt="logo" width={100} height={65} title='Arkie' />
+        <Image src="/Arkie.png" alt="arkie" width={100} height={65} title="Arkie" />
       </div>
       <div className={styles.keysContainer}>
         <ul className={styles.keyList}>
