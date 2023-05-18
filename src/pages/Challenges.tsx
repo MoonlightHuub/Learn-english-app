@@ -7,6 +7,7 @@ function Challenges() {
     <main className={styles.main}>
       <Head>
         <title>Learn With Arkie | Desafios</title>
+        <link rel="icon" href="/ArkieIco.ico" />
       </Head>
       <Content />
     </main>
