@@ -159,7 +159,7 @@
         width: 100%;
     }
 
-    .arkie{
+    .arkieWoF{
         width: 15em;
         margin-left: 30px;
     }
@@ -246,6 +246,17 @@
     }
     
     .menuButton:active{
+        transform: scale(.9);
+        transition: .2s;
+    }
+
+    .arkieHeader{
+        width: 7em;
+        height: auto;
+        margin: 1em;
+    }
+
+    .arkieHeader:active{
         transform: scale(.9);
         transition: .2s;
     }

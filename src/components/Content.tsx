@@ -90,13 +90,14 @@ function Content(props: Props) {
         <header>
           <div
             style={{position: "absolute", top: "0"}}
-            onClick={() => {Router.push("/")}}
+            
           >
-            <Image  
+            {/* eslint-disable-next-line */}
+            <img 
               src="/Arkie.png"
               alt="Arkie"
-              width={100}
-              height={70}
+              className={`${styles.arkieHeader} ${mobileStyles.arkieHeader}`}
+              onClick={() => {Router.push("/")}}
             />
           </div>
           <Timer start={start} setStart={setStart} resolution={resolution.width} />
@@ -108,23 +109,12 @@ function Content(props: Props) {
           <section className={`${styles.tutorialIntro} ${mobileStyles.tutorialIntro}`}>
             <div className={`${styles.introContainer} ${mobileStyles.introContainer}`}>
               <div>
-                {resolution.width > 640? 
-                  <Image
+                {/* eslint-disable-next-line */}
+                  <img
                     src="/Arkie.png"
                     alt="Arkie"
-                    width={240}
-                    height={240}
                     className={`${styles.arkieIntro} ${mobileStyles.arkieIntro}`}
                   />
-                    :
-                  <Image
-                    src="/Arkie.png"
-                    alt="Arkie"
-                    width={140}
-                    height={140}
-                    className={`${styles.arkieIntro} ${mobileStyles.arkieIntro}`}
-                  />  
-                }
               </div>
               <div>
                 {endText.map((e, i) => (
@@ -151,11 +141,10 @@ function Content(props: Props) {
           <section className={`${styles.tutorialIntro} ${mobileStyles.tutorialIntro}`}>
             <div className={`${styles.introContainer} ${mobileStyles.introContainer}`}>
               <div>
-                <Image
+                {/* eslint-disable-next-line */}
+                <img
                   src="/Arkie.png"
                   alt="Arkie"
-                  width={50}
-                  height={150}
                   className={`${styles.arkieIntro} ${mobileStyles.arkieIntro}`}
                 />
               </div>
@@ -219,7 +208,8 @@ function Content(props: Props) {
               </h2>
             </div>
             <div className={`${styles.imageContainer} ${mobileStyles.imageContainer}`}>
-              <Image src="/Arkie.png" width={240} height={140} alt="Arkie" className={`${styles.arkie} ${mobileStyles.arkie}`} />
+              {/* eslint-disable-next-line */}
+              <img src="/Arkie.png" alt="Arkie" className={`${styles.arkieWoF} ${mobileStyles.arkieWoF}`} />
             </div>
             <div>
               <button

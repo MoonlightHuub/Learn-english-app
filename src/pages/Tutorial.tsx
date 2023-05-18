@@ -8,7 +8,7 @@ function Tutorial() {
     <main className={styles.main}>
       <Head>
         <title>Learn With Arkie | Tutorial</title>
-        <link rel="icon" href="/ArkieIco.ico" />
+        <link rel="icon" href="/arkieico.ico" />
       </Head>
       <HeaderOut />
       <div style={{ height: "5em" }} className={styles.isMobile} />
